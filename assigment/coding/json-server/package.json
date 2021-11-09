@@ -1,0 +1,14 @@
+{
+  "name": "Testing-api-app",
+  "version": "1.0.0",
+  "description": "Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo\"Error: no testspecified\" && exit 1"
+  },
+  "author": "Vaibhav-Solanki",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
