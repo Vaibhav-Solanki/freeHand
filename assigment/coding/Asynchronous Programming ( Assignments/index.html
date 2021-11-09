@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/21bc9a918c.js" crossorigin="anonymous"></script> 
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        *{
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        form{
+    transform: translate(0%,0%);
+    transition: all 1s;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+    width: 75%;
+    cursor: pointer;
+}
+input{
+    background-color: #dddddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+    display: block;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+    background: #07051a;
+    color: white;
+}
+nav{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}
+header{
+    width: 100%;
+    background: rgb(255, 255, 255);
+    padding: 5px 10px 5px 15px;
+    border-radius: 15px;
+    box-shadow: rgb(9 30 66 / 25%) 0px 4px 8px -2px, rgb(9 30 66 / 8%) 0px 0px 0px 1px;
+}
+.slider{
+    width: 100%;
+    box-sizing: border-box;
+    height: 60vh;
+    margin: auto;
+    margin-top: 10px;
+}
+img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+main{
+    margin: auto;
+    width: 95%;
+}
+.h1{
+    margin: 15px 0px 0px 0px;
+    border-left: 5px hsl(46,91%,52%) solid;
+    padding-left: 15px;
+    font-size: 35px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+.cardLeft{
+    width: 160px;
+}
+.moviesCard{
+    display: flex;
+    width: 465px;
+    margin: 20px 0px 20px 0px;
+}
+h2{
+    margin: 0px -1px 0px 10px;
+    font-size: 23px;
+    font-weight: 500;
+}
+p{
+    border-left: 3px solid red;
+    margin: 0px 0px 0px 10px;
+    padding-left: 7px;
+}
+.star{
+    margin: 0px 0px 0px 10px;
+    color: #f5c518;
+}
+.cardRight{
+    width: 300px;
+}
+.plot{
+    margin: 4px 0px 0px 10px;
+}
+#mainBox{
+    width: 520px;
+    margin: auto;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    background-color: white;
+}
+.gold{
+    color: #f5c518;
+}
+.silver{
+    color: silver;
+}
+select{
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    color: red;
+}
+body{
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+    </style>
+</head>
+<body>
+    <div id="mainBox">
+        <header>
+            <nav>
+                <svg id="home_img" class="ipc-logo" xmlns="http://www.w3.org/2000/svg" width="64" height="32" viewBox="0 0 64 32" version="1.1"><g fill="#F5C518"><rect x="0" y="0" width="100%" height="100%" rx="4"></rect></g><g transform="translate(8.000000, 7.000000)" fill="#000000" fill-rule="nonzero"><polygon points="0 18 5 18 5 0 0 0"></polygon><path d="M15.6725178,0 L14.5534833,8.40846934 L13.8582008,3.83502426 C13.65661,2.37009263 13.4632474,1.09175121 13.278113,0 L7,0 L7,18 L11.2416347,18 L11.2580911,6.11380679 L13.0436094,18 L16.0633571,18 L17.7583653,5.8517865 L17.7707076,18 L22,18 L22,0 L15.6725178,0 Z"></path><path d="M24,18 L24,0 L31.8045586,0 C33.5693522,0 35,1.41994415 35,3.17660424 L35,14.8233958 C35,16.5777858 33.5716617,18 31.8045586,18 L24,18 Z M29.8322479,3.2395236 C29.6339219,3.13233348 29.2545158,3.08072342 28.7026524,3.08072342 L28.7026524,14.8914865 C29.4312846,14.8914865 29.8796736,14.7604764 30.0478195,14.4865461 C30.2159654,14.2165858 30.3021941,13.486105 30.3021941,12.2871637 L30.3021941,5.3078959 C30.3021941,4.49404499 30.272014,3.97397442 30.2159654,3.74371416 C30.1599168,3.5134539 30.0348852,3.34671372 29.8322479,3.2395236 Z"></path><path d="M44.4299079,4.50685823 L44.749518,4.50685823 C46.5447098,4.50685823 48,5.91267586 48,7.64486762 L48,14.8619906 C48,16.5950653 46.5451816,18 44.749518,18 L44.4299079,18 C43.3314617,18 42.3602746,17.4736618 41.7718697,16.6682739 L41.4838962,17.7687785 L37,17.7687785 L37,0 L41.7843263,0 L41.7843263,5.78053556 C42.4024982,5.01015739 43.3551514,4.50685823 44.4299079,4.50685823 Z M43.4055679,13.2842155 L43.4055679,9.01907814 C43.4055679,8.31433946 43.3603268,7.85185468 43.2660746,7.63896485 C43.1718224,7.42607505 42.7955881,7.2893916 42.5316822,7.2893916 C42.267776,7.2893916 41.8607934,7.40047379 41.7816216,7.58767002 L41.7816216,9.01907814 L41.7816216,13.4207851 L41.7816216,14.8074788 C41.8721037,15.0130276 42.2602358,15.1274059 42.5316822,15.1274059 C42.8031285,15.1274059 43.1982131,15.0166981 43.281155,14.8074788 C43.3640968,14.5982595 43.4055679,14.0880581 43.4055679,13.2842155 Z"></path></g></svg>
+                <form id="searchForm">
+                    <input type="search" required placeholder="Search..." id="search">
+                    <i class="fa fa-search"></i>
+                  </form>
+            </nav>  
+    </header>    
+    <main>
+        <div class="slider">
+            <img src="https://img.indiefolio.com/fit-in/1100x0/filters:format(webp):fill(transparent)/project/body/d517ae40ec1a6837fb755d865937ed07.jpg" alt="" id="sliderIMG">
+        </div>
+        <div class="title">
+            <div class="h1">What To Watch 
+                <select name="filter" id="filter" onchange="ratSort()">
+                <option value="" >Sort</option>
+                <option value="h">High to low</option>
+                <option value="l">low to high</option>
+              </select></div>
+            
+            <div class="maovieContainer">
+                <!-- movies card will be appended here -->
+            </div>
+        </div>
+    </main>
+    </div>
+</body>
+<script>
+    document.querySelector("#home_img").addEventListener("click",()=>{
+        window.open("/index.html","_self");
+    })
+    const sliderIMG=document.querySelector("#sliderIMG");
+    const maovieContainer=document.querySelector(".maovieContainer");
+    var data=[{"Title":"The Amazing Spider-Man","reting":"6.9","Year":"03 Jul 2012","plot":"After Peter Parker is bitten by a genetically altered spider, he gains newfound, spider-like powers and ventures out to save the city from the machinations of a mysterious reptilian foe.","img":"https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_SX300.jpg"},{"Title":"Spider-Man 3","reting":"6.2","Year":"04 May 2007","plot":"A strange black entity from another world bonds with Peter Parker and causes inner turmoil as he contends with new villains, temptations, and revenge.","img":"https://m.media-amazon.com/images/M/MV5BYTk3MDljOWQtNGI2My00OTEzLTlhYjQtOTQ4ODM2MzUwY2IwXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg"},{"Title":"Spider-Man 2","reting":"7.3","Year":"30 Jun 2004","plot":"Peter Parker is beset with troubles in his failing personal life as he battles a brilliant scientist named Doctor Otto Octavius.","img":"https://m.media-amazon.com/images/M/MV5BMzY2ODk4NmUtOTVmNi00ZTdkLTlmOWYtMmE2OWVhNTU2OTVkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"},{"Title":"Spider-Man: Homecoming","reting":"7.4","Year":"07 Jul 2017","plot":"Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.","img":"https://m.media-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_SX300.jpg"},{"Title":"Spider-Man: Into the Spider-Verse","reting":"8.4","Year":"14 Dec 2018","plot":"Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.","img":"https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_SX300.jpg"},{"Title":"Spider-Man","reting":"7.3","Year":"03 May 2002","plot":"When bitten by a genetically modified spider, a nerdy, shy, and awkward high school student gains spider-like abilities that he eventually must use to fight evil as a superhero after tragedy befalls his family.","img":"https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg"}];
+    showData(data);
+    function showData(dta){
+        maovieContainer.innerHTML="";
+        dta.map((movie)=>{
+            let div=document.createElement("div");
+            div.setAttribute("class","moviesCard");
+            let {Title,reting,Year,plot,img}=movie;
+            let star=starString(reting);
+            div.innerHTML=`<div class="cardLeft"><img src="${img}" alt=""></div>
+                        <div class="cardRight">
+                        <h2>${Title}</h2>
+                        <div class="star">${star}</div>
+                        <p>${Year}</p>
+                        <div class="plot">
+                            ${plot}
+                        </div>
+                    </div>`;
+            maovieContainer.append(div);
+        })
+    }
+var i=0;
+var img_slide=["https://img.indiefolio.com/fit-in/1100x0/filters:format(webp):fill(transparent)/project/body/d517ae40ec1a6837fb755d865937ed07.jpg","https://cdn.seat42f.com/wp-content/uploads/2020/07/15192015/Project-Power-Movie-Poster-Jamie-Foxx.jpg","https://sm.ign.com/t/ign_in/gallery/s/spider-man/spider-man-far-from-home-official-movie-posters_epch.1080.jpg","https://www.joblo.com/wp-content/uploads/2021/11/encounter-2021-poster-400x600.jpg"];
+slideleft();
+setInterval(slideleft,3000);
+function slideleft(){
+    if(i==0)
+    sliderIMG.src=img_slide[i=3];
+    else
+    sliderIMG.src=img_slide[--i];
+}
+    function starString(n){
+        n=Number(n)/2
+        let flage=(n%1!=0)
+        var str="";
+        for(var i=1;i<6;i++)
+        if(i<=Number(n)){
+            str+='<i class="fas fa-star gold"></i>';
+        }
+        else{
+            if(flage){
+                str+='<i class="fas fa-star-half-alt gold"></i>';
+                flage=false;
+            }
+            else
+            str+='<i class="fas fa-star silver"></i>';
+        }
+        return str;
+    }
+    function ratSort() {
+        var selected = document.querySelector("#filter").value;
+        if (selected == "h") {
+            data.sort(function (a, b) {
+                return Number(b.reting) - Number(a.reting);
+            });
+        }
+        if (selected == "l") {
+            data.sort(function (a, b) {
+                return Number(a.reting) - Number(b.reting);
+            });
+        }
+        showData(data);
+    }
+
+
+    document.querySelector(".fa-search").addEventListener("click",search);
+document.querySelector("#searchForm").addEventListener("submit",search);
+var movieD=[];
+const searchIn=document.querySelector("#search");
+async function search(e){
+    e.preventDefault();
+    let que=searchIn.value;
+    searchIn.value="";
+    try{
+        let res = await fetch(`https://www.omdbapi.com/?s=${que}&apikey=8ed324f5`);
+        let {Search} = await res.json();
+        let movieId=[];
+        Search.forEach(movie => {
+            movieId.push(movie.imdbID);
+        });
+        movieId=movieId.slice(0,6);
+        processId(movieId);
+    }catch(err){
+        console.log("error: ",err);
+    }
+}
+function processId(arr){
+    document.querySelector(".slider").style.display="none";
+    data=[];
+    arr.forEach(element => {
+        digIn(element);
+    });
+}
+async function digIn(id){
+    try{
+            let res = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=8ed324f5`);
+            let {Title,imdbRating,Released,Plot,Poster} = await res.json();
+            var movie={
+                "Title":Title,
+                "reting":imdbRating,
+                "Year":Released,
+                "plot":Plot,
+                "img":Poster
+            }
+            data.push(movie);
+            showData(data);
+        }catch(err){
+            console.log("error :",err)
+        }
+}
+</script>
+</html>
