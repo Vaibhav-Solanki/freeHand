@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            display: flex;
+            align-items: center;
+    flex-direction: column;
+        }
+        .ver {
+            display: flex;
+            align-items: center;
+            margin: 50px;
+            width: 991px;
+            font-size: 20px;
+        }
+        .ver>div{
+            height: 170px;
+            margin-left: 25px;
+        }
+        #sal{
+            color: red;
+            margin: 0px;
+            font-size: xxx-large;
+        }
+        *{
+            font-family: system-ui;
+        }
+        #pr {
+            background-color: #e3dadb;
+    text-align: center;
+    margin: 20px;
+    padding: 25px;
+    font-size: x-large;
+    width: 600px;
+        }
+        #pr > h2{
+            font-weight: 400;
+        }
+    #pr > h1{
+        color: navy;
+    }
+    #nich {
+        display: flex;
+        background-color: hsl(24,100%,41%);
+    width: 1120px;
+    padding-top: 5px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    justify-content: space-between;
+    }
+    #nich>div>h1{
+        font-weight: 400;
+        color: white;
+    }
+    #nich>div>p{
+        font-weight: 500;
+    font-size: 20px;
+    }
+    #nich>div{
+        width: 356px;
+    }
+    </style>
+</head>
+<body>
+    <div id='main'>
+        <div id="pr">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/resources/images/linus.jpg" width="150px" alt="salman khan">
+            <h1>Linus Torvalds</h1>
+            <h2>The creator of Linux & Git</h2>
+        </div>
+        <div class="ver">
+            <div>
+                <img src="https://masai-course.s3.ap-south-1.amazonaws.com/resources/images/khan.jpg" alt="linux" height="170px">
+            </div>
+            <div>
+                <h1 id="sal">Sal Khan</h1><p>Salman Khan is the founder of the Khan Academy which has a mission
+                of providing a free world-class education for anyone , anywhere.</p>
+            </div>
+        </div>
+        <div id="nich">
+            <div style="text-align:left;">
+                <h1>Ken Thompson</h1><p>Designed and Implemented the
+original unix operating system</p>
+            </div>
+            <div style="width: 10px;background-color: black;margin: 15px;">
+
+            </div>
+            <div style="text-align:right;">
+                <h1>Dennis Ritchie</h1><p>The creator of C programming Language</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
