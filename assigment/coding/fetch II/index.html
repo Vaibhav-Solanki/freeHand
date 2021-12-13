@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/21bc9a918c.js" crossorigin="anonymous"></script> 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        *{
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+    body{
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom, #68EACC 0%, #497BE8 100%);
+            background-repeat:no-repeat ;
+            background-size: cover;
+        }
+        .card{
+            margin-top: 15px;
+            width: 100%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        .sub-card{
+            border-radius: 10px;
+            background-color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 22px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            justify-content: space-around;
+        }
+        .loc{
+            display: flex;
+            align-items: center;
+        }
+        .temp{
+            font-size: 100px;
+            margin-top: -25px;
+            pointer-events: none;
+        }
+        .loc>*{
+            margin-left: 10px;
+        }
+        .vLine{
+            width: 3px;
+            background-color: #9b9b9b59;
+            border-radius: 10px;
+            margin-left: 15px;
+            margin-right: 15px;
+            height: 150px;
+        }
+        .map{
+            border: 0;
+            width: 170px;
+            height: 170px;
+            border-radius: 7px;
+            pointer-events: none;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+           
+        }
+        .data-in{
+            margin:0;
+            margin-left: 10px;
+            pointer-events: none;
+        }
+        .right{
+            margin-left: 20px;
+        }
+        .loc>i{
+            font-size: 17px;
+        }
+        #main{
+            width: 630px;
+            margin: auto;
+        }
+        .noman{
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            justify-content: space-around;
+            width: 70px!important;
+            height: 145px!important;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .noman>p{
+            margin: 0px;
+        }
+        .day{
+            margin-bottom: 10px!important;
+        }
+        .noman>img{
+            margin: -23px;
+            filter: drop-shadow(5px 5px 5px #222);
+        }
+        .fa-sun{
+            color: #ffbd28
+        }
+        .fa-thermometer-quarter,.fa-street-view{
+            color: #fd3737;
+        }
+        .fa-thermometer-three-quarters{
+            color: #1e2fff;
+        }
+        .fa-moon{
+            color: #959595;
+        }
+        .fa-fan{
+            color: #941eff;
+        }
+        .fa-cloud-sun{
+            color: #1eb6ff;
+        }
+        button{
+            width: 60px;
+            height: 40px;
+            border-radius: 10px;
+            border: none;
+            font-size: 20px;
+            background: white;
+            color: #61c8bc;
+            box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+        }
+        input{
+            height: 38px;
+    border-radius: 7px;
+    width: 540px;
+    border: none;
+        }
+        #is-div-ko-me-kya-name-du{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="card">
+            <div id="is-div-ko-me-kya-name-du">
+                <input type="text" id="citySearch" placeholder="Enter Your City Name">
+                <button onclick="getWeather(1)"><i class="fas fa-compass"></i></button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="sub-card">
+                <div class="Left">
+                    <iframe class="map"
+                    loading="lazy"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAV-yQBf6hOT0SSEEYCINcYNYX-cmLFK9k
+                    &q=Ujjain&zoom=11">
+                    </iframe>
+                </div>
+                <div class="vLine"></div>   
+                <div class="mid">
+                    <div class="loc">
+                        <i class="fas fa-street-view"></i>
+                        <p id="City">Ujjain - India</p>
+                    </div>
+                    <div class="temp">26℃</div>
+                </div>    
+                <div class="right">
+                    <div class="loc">
+                        <i class="fas fa-sun"></i>
+                        <p id="sunrice" class="data-in">6:00am</p>
+                    </div>
+                    <div class="loc">
+                        <i class="fas fa-moon"></i>
+                        <p id="sunset" class="data-in">6:00pm</p>
+                    </div>
+                    <div class="loc">
+                        <i class="fas fa-thermometer-quarter"></i><sup>Low</sup>
+                        <p id="tmin" class="data-in">23</p>
+                    </div>
+                    <div class="loc">
+                        <i class="fas fa-thermometer-three-quarters"></i><sup>Max</sup>
+                        <p id="tmax" class="data-in">26</p>
+                    </div>
+                    <div class="loc">
+                        <i class="fas fa-fan"></i>
+                        <p id="wind" class="data-in">26</p>
+                    </div>
+                    <div class="loc">
+                        <i class="fas fa-cloud-sun"></i>
+                        <p id="cloud" class="data-in">Sunny</p>
+                    </div>
+                </div>                         
+            </div>
+        </div>
+        <div class="card" style="display: flex;justify-content: space-evenly;" id="dailyW">
+            <!-- daily data will sppended here -->
+        </div>
+    </div>    
+</body>
+<script>
+var city = "ujjain";
+const dailyW=document.querySelector("#dailyW");
+getWeather();
+async function getWeather(testCase){
+    dailyW.innerHTML="";
+    if(testCase==1)
+    city = document.querySelector("#citySearch").value;     
+    document.querySelector("#citySearch").value="";   
+        try {
+            let ris= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=08eafd6de1962fe0986514a7ea1f6d0d`);
+            let tamp = await ris.json();
+            let [lat,lon]=[tamp.coord.lat,tamp.coord.lon];
+            let res= await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&appid=08eafd6de1962fe0986514a7ea1f6d0d`);
+            var data = await res.json();
+            let current=data.current;
+            let daily=data.daily;
+            showCurrent(current,daily);
+            showDaily(daily);
+        } catch(err){
+            console.log(err);
+        }
+    }
+    function timeFix(timeUnix){
+        let s = new Date(timeUnix*1000).toLocaleTimeString("en-US")
+        return s;
+    }
+
+
+    function showCurrent(current,daily){
+        let tmin=Math.floor(Number(daily[0].temp.min))
+        tmax=Math.floor(Number(daily[0].temp.max)),
+        temp=Math.floor(Number(current.temp)),
+        wind=current.wind_speed, 
+        clounds=current.clouds, 
+        sunrise=timeFix(current.sunrise), 
+        sunset=timeFix(current.sunset);
+        document.querySelector(".map").setAttribute("src",`https://www.google.com/maps/embed/v1/place?key=AIzaSyCGxrwndHcK2iGSx691s2xI0Ei2P2jYyZw&q=${city}&zoom=11`);
+        document.querySelector("#City").innerHTML=city;
+        document.querySelector(".temp").innerHTML=temp+"℃";
+        document.querySelector("#sunrice").innerHTML=sunrise;
+        document.querySelector("#sunset").innerHTML=sunset;
+        document.querySelector("#tmin").innerHTML=tmin+" ℃";
+        document.querySelector("#tmax").innerHTML=tmax+" ℃";
+        document.querySelector("#wind").innerHTML=wind+" m/s";
+        document.querySelector("#cloud").innerHTML=clounds+" %";
+    }
+
+
+function showDaily(daily){
+    daily.map((el,ind)=>{
+    let div=document.createElement("div");
+    div.setAttribute("class","noman");
+    var dayBlock=document.createElement("p");
+    dayBlock.setAttribute("class","day");
+    dayBlock.innerHTML=reDay(ind);
+    var img=document.createElement("img");
+    img.setAttribute("src",`http://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`);
+    var max=document.createElement("p");
+    let mint=Math.floor(Number(el.temp.min))
+    max.innerHTML=`<i class="fas fa-thermometer-quarter" style="color: #1e2fff;"></i>${mint} ℃`;
+    var min=document.createElement("p");
+    let mant=Math.floor(Number(el.temp.max))
+    min.innerHTML=`<i class="fas fa-thermometer-quarter" style="color: #fd3737;"></i>${mant} ℃`;
+    div.append(dayBlock,img,max,min);
+    dailyW.append(div);
+    })
+}
+
+
+    function reDay(iN){
+        let da=["Su","Ma","Tu","We","Th","Fr","Sa"];
+        let d = new Date()
+        let cur=Number(d.getDay());
+        cur+=Number(iN);
+        if(cur>6){
+            cur=cur-7;
+        }
+        return da[cur];
+    }
+</script>
+</html>
