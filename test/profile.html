@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SingleCard</title>
+</head>
+<style>
+    .container{
+        border: 1px solid grey;
+        height: 250px;
+        width: 500px;
+        margin: auto;
+        margin-top: 200px;
+        display: flex;
+        border-radius: 5px;
+    }
+    .container > div{
+        height: 100%;
+        width: 50%;
+        margin-left: 15px;
+        margin-right: 20px;
+    }
+    button{
+        padding: 10px 15px;
+        background-color: #007bff;
+        border-radius: 4px;
+        color: white;
+        border: none;
+        
+    }
+    p{
+        line-height: 25px;
+    }
+</style>
+<body>
+    <div class="container"></div>
+</body>
+</html>
+
+<script>
+   var img = document.createElement("img");
+   var childDiv = document.createElement("div");
+   var h2 = document.createElement("h2");
+   var p = document.createElement("p");
+   var btn = document.createElement("button");
+
+   img.setAttribute("src", "https://via.placeholder.com/250x250");
+   h2.textContent = "Alice Liddel";
+   p.textContent = "Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, Javascript, Bootstrap, etc.";
+   btn.textContent = "View Profile";
+   childDiv.append(h2,p,btn);
+   document.querySelector(".container").append(img,childDiv);
+   var body = document.querySelector("body");
+   body.append(mainDiv);
+</script>
