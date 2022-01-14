@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerical_Keyboard</title>
+    <style>
+        #container{
+            display: grid;
+            width: 312px;
+            margin: auto;
+            grid-template-rows: repeat(4,70px);
+            grid-template-columns: repeat(4,70px);
+            grid-gap: 10px;
+            margin-top: 10px;
+            grid-template-areas: 
+          
+            "b c d n"
+            "e f g o"
+            "h i j p"
+            "k l m q";
+            text-align: center;
+           
+
+        }
+        .align{
+            display: grid;
+            align-items: center;
+        }
+        
+        #inputBox{
+            margin: auto;
+            border: 1px solid blue;
+            width: 315px;
+            height: 70px;
+            /* overflow: hidden; */
+            margin-top: 100px;
+        }
+        .shadow{
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+        .box1{
+            grid-area: b;
+            border: 1px solid red;
+            
+        }
+        .box2{
+            grid-area: c;
+            border: 1px solid red;
+        }
+        .box3{
+            grid-area: d;
+            border: 1px solid red;
+        }
+        .box4{
+            grid-area: e;
+            border: 1px solid red;
+        }
+        .box5{
+            grid-area: f;
+            border: 1px solid red;
+        }
+        .box6{
+            grid-area: g;
+            border: 1px solid red;
+        }
+        .box7{
+            grid-area: h;
+            border: 1px solid red;
+        }
+        .box8{
+            grid-area: i;
+            border: 1px solid red;
+        }
+        .box9{
+            grid-area: j;
+            border: 1px solid red;
+        }
+        .box10{
+            grid-area: k;
+            border: 1px solid red;
+        }
+        .boxClear{
+            grid-area: l;
+            border: 1px solid red;
+        }
+        .boxEqual{
+            grid-area: m;
+            border: 1px solid red;
+        }
+        /* .boxmod{
+            grid-area: n;
+            border: 1px solid red;
+        } */
+        .boxSl{
+            grid-area: n;
+            border: 1px solid red;
+        }
+        .boxPl{
+            grid-area: o;
+            border: 1px solid red;
+        }
+        .boxSt{
+            grid-area: p;
+            border: 1px solid red;
+        }
+        .boxmi{
+           
+            grid-area: q;
+            border: 1px solid red;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id="inputBox"></div>
+    <div id = "container">
+        <div class="box1 align shadow" onclick="keyboard(1)">1</div>
+        <div class="box2 align shadow" onclick="keyboard(2)">2</div>
+        <div class="box3 align shadow" onclick="keyboard(3)">3</div>
+        <div class="box4 align shadow" onclick="keyboard(4)">4</div>
+        <div class="box5 align shadow" onclick="keyboard(5)">5</div>
+        <div class="box6 align shadow" onclick="keyboard(6)">6</div>
+        <div class="box7 align shadow" onclick="keyboard(7)">7</div>
+        <div class="box8 align shadow" onclick="keyboard(8)">8</div>
+        <div class="box9 align shadow" onclick="keyboard(9)">9</div>
+        <div class="box10 align shadow" onclick="keyboard(0)">0</div>
+        <div class="boxEqual align shadow" onclick="solve()">=</div>
+        <div class="boxSl align shadow" onclick="keyboard('/')">/</div>
+        <div class="boxPl align shadow" onclick="keyboard('+')">+</div>
+        <div class="boxSt align shadow" onclick="keyboard('*')">*</div>
+        <div class="boxmi align shadow" onclick="keyboard('-')">-</div>
+        <div class="boxClear align shadow" onclick="keyboard('clear')">clear</div>
+    </div>
+    <script>
+       function keyboard(N){
+        var box = document.getElementById("inputBox");
+        if(N == "clear"){
+           box.innerHTML = "";
+           return; 
+        }
+       
+        var value = box.innerHTML + N;
+        box.innerHTML = value;
+    }
+    function solve()
+		{
+			var x = document.getElementById("inputBox").innerHTML
+			var y = eval(x)
+			document.getElementById("inputBox").innerHTML= y;
+		}
+    </script>
+</body>
+</html>
+    
