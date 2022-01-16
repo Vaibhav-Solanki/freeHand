@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="order">
+        <label for="1">Chicken Sandwich</label>
+    <input type="checkbox" name="0" id="1">
+    <label for="2">Big Mac</label>
+    <input type="checkbox" name="1" id="2">
+    <label for="3">Chicken McNuggets</label>
+    <input type="checkbox" name="2" id="3">
+    <label for="4">World Famous Fries</label>
+    <input type="checkbox" name="3" id="4">
+    <label for="5">Quarter Pounder®* with Cheese</label>
+    <input type="checkbox" name="4" id="5">
+    <label for="6">Iced Coffee</label>
+    <input type="checkbox" name="5" id="6">
+    <input type="submit" value="Order">
+    </form>
+    
+</body>
+<script>
+    var food=[
+        {
+            name:"Chicken Sandwich",
+            img:"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-spicy-crispy-chicken-sandwich.jpg"
+        },
+        {
+            name:"Big Mac",
+            img:"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Big-Mac.jpg"
+        },
+        {
+            name:"Chicken McNuggets",
+            img:"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-4pc.jpg"
+        },
+        {
+            name:"World Famous Fries",
+            img:"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-fries-small.jpg"
+        },
+        {
+            name:"Quarter Pounder®* with Cheese",
+            img:"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Quarter-Pounder-with-Cheese.jpg"
+        },
+        {
+            name:"Iced Coffee",
+            img:"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Premium-Roast-Iced-Coffee-Medium.jpg"
+        }
+    ];
+    var no=0;
+    var order=document.querySelector("#order");
+    order.addEventListener("submit",noman);
+    function noman(el){
+        var or=[];
+        el.preventDefault();
+        var data = new FormData(order);
+        for (value of data)
+        or.push(value[0]);
+        const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(or);
+  }, 5000);
+});
+myPromise.then(function(data){
+    var body =document.querySelector("body");
+    data.map((el)=>{
+        var div=document.createElement("div");
+        var img=document.createElement("img");
+        img.setAttribute("src",food[el].img);
+        var h2=document.createElement("h2");
+        h2.innerText=food[el].name;
+        div.append(img,h2);
+        body.append(div);
+    })
+})
+    }
+
+
+    </script>
+</html>
