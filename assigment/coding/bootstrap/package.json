@@ -1,0 +1,15 @@
+{
+  "name": "vaibhav",
+  "version": "1.0.0",
+  "description": "testing boot",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "no"
+  },
+  "author": "vaibhav solanki",
+  "license": "MIT"
+}
