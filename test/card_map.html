@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .mn{
+        display: flex;
+        width: 80%;
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .card{
+        width: 300px;
+        margin: 1vw;
+    }
+    .card>div{
+        flex-direction: row;
+    }
+    .card>h2{
+        font-size: 24px;
+    }
+    .card>div>h3{
+        font-size: 33px;
+        display: inline;
+        margin: 0;
+    }
+    .card>div{
+        display: flex;
+        justify-content: space-between;
+    }
+    .card>div>del{
+        font-size: 30px;
+    }
+    img{
+        width: 100%;
+    }
+</style>
+<body>
+    <div class="mn">
+    </div>   
+    <script>
+        var data = [
+        {
+            imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+            name:"LATEST MEN’S SNEAKER",
+            price:"$25.00",
+            strikedOffPrice:"$95.00"
+        },{
+            imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+            name:"LATEST MEN’S SNEAKER",
+            price:"$35.00",
+            strikedOffPrice:"$100.00"
+        },{
+            imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+            name:"LATEST MEN’S SNEAKER",
+            price:"$35.00",
+            strikedOffPrice:"$100.00"
+        },
+        {
+            imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+            name:"LATEST MEN’S SNEAKER",
+            price:"$35.00",
+            strikedOffPrice:"$100.00"
+        }
+    
+    ];
+    document.querySelector(".mn").innerHTML=data.map((el,ind)=>{
+        return "<div class='card'><img src="+el.imgUrl+"><h2>"+el.name+"</h2><div class='sub'><h3>"+el.price+"</h3><del>"+el.strikedOffPrice+"<del></div></div>";
+    }).join('');
+    </script> 
+</body>
+</html>
