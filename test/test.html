@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid and grid_area</title>
+</head>
+<style>
+    *{
+        color: white;
+        font-weight: bold;
+    }
+    .main{
+        display: grid;
+        align-content: space-between;
+        padding: 20px;
+        height: 650px;
+        justify-content: center;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(4, 80px);
+        grid-template-rows: repeat(2, 80px);
+        grid-gap: 20px;
+        padding: 20px;
+        grid-template-areas: "a a b e"
+            "c d b e"
+    }
+
+    .sub_container {
+        display: grid;
+        
+        grid-template-columns: repeat(4, 80px);
+        grid-template-rows: repeat(3, 80px);
+        grid-gap: 20px;
+        padding: 20px;
+        grid-template-areas:
+            "a1 a1 b1 b1 "
+            "c1 d1 d1 d1"
+            "e1 e1 e1 e1"
+
+    }
+
+    .container>div {
+        background-color: rgb(0, 0, 0);
+        border-radius: 10px;
+        display: grid;
+        justify-content: start;
+    padding: 10px;
+        align-items: center;
+    }
+    .sub_container>div {
+        background-color: rgb(0, 0, 0);
+        border-radius: 10px;
+        display: grid;
+        justify-content: start;
+    padding: 10px;
+        align-items: center;
+    }
+    .container>div:nth-child(1) {
+        grid-area: a;
+    }
+
+    .container>div:nth-child(2) {
+        grid-area: b;
+    }
+
+    .container>div:nth-child(3) {
+        grid-area: c;
+    }
+
+    .container>div:nth-child(4) {
+        grid-area: d;
+    }
+
+    .container>div:nth-child(5) {
+        grid-area: e;
+    }
+
+    .sub_container>div:nth-child(1) {
+        grid-area: a1;
+    }
+
+    .sub_container>div:nth-child(2) {
+        grid-area: b1;
+    }
+
+    .sub_container>div:nth-child(3) {
+        grid-area: c1;
+    }
+
+    .sub_container>div:nth-child(4) {
+        grid-area: d1;
+    }
+
+    .sub_container>div:nth-child(5) {
+        grid-area: e1;
+    }
+</style>
+
+<body>
+    <div class="main">
+    <div class="container">
+
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+
+    </div>
+    <div class="sub_container">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+
+    </div>
+</div>
+</body>
+
+</html>
