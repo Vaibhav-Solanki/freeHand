@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: system-ui;
+        }
+        #container{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        input{
+            display: block;
+            width: 100%;
+            height: 40px;
+    border-radius: 6px;
+    margin: 5px;
+        }
+        #first{
+            margin: 15px;
+        }
+        #sec{
+            margin: 15px;
+        }
+        textarea{
+            display: block;
+            width: 99%;
+            border-radius: 6px;
+    margin: 5px;
+        }
+        select{
+            width: 100%;
+            border-radius: 6px;
+    margin: 5px;
+        }
+        button{
+            width: 100%;
+            border-radius: 6px;
+    margin: 5px;
+        }
+        table {
+  color: #333;
+  background: white;
+  border: 1px solid grey;
+  border-radius: 10px;
+  font-size: 12pt;
+  border-collapse: collapse;
+}
+table thead th,
+table tfoot th {
+  color: #777;
+  background: rgba(0,0,0,.1);
+}
+table caption {
+  padding:.5em;
+}
+table th,
+table td {
+  padding: .5em;
+  border: 1px solid lightgrey;
+}
+        @media only screen and (max-width: 600px) {
+            #container{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">raise tickets</h1>
+    <div id="container">
+    <div id="first">
+        <form id="form">
+            <label for="cat">Select Catagory</label>
+            <select id="cat" >
+                <option value="refund">refund</option>
+                <option value="item_missing">item missing</option>
+                <option value="order_status">order status</option>
+                <option value="delivery">delivery</option>
+                <option value="feedback">feedback</option>
+            </select>
+            <label for="ticket"> Write down your feedback</label>
+            <textarea id="ticket" cols="30" rows="10"></textarea>
+            <label for="date"> select date</label>
+            <input type="date" id="date">
+            <input type="submit" value="submit" >
+        </form>
+        <br>
+        <br>
+    </div>
+    <div id="sec">
+        <div class="nav">
+            <select name="" id="Sort" onchange="handleSort()">
+                <option value="">order</option>
+                <option value="low">Ascending</option>
+                <option value="high">Descending</option>
+            </select>   
+            <button onclick="handleSort()">sort</button>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>
+                    Ticket Number
+                </th>
+                <th>
+                    ticket category 
+                </th>
+                <th>
+                    ticket  
+                </th>
+                <th>
+                    date stamp  
+                </th>
+            </tr>
+        </thead>
+        <tbody id="table_data">
+        </tbody>
+        </table>
+    </div>
+    </div>
+    <script>
+        document.querySelector("#form").addEventListener("submit", addItem);
+  var prod = JSON.parse(localStorage.getItem("karlo")) || [];
+  function addItem(event) {
+    var no=Math.floor(Math.random() * 10);
+    event.preventDefault();
+    var ticket = document.querySelector("#ticket").value;
+    var cat = document.querySelector("#cat").value;
+    var date = document.querySelector("#date").value;
+
+    var ticket = {
+      bd:ticket,
+      cat:cat,
+      date:date,
+      no:no
+    };
+    prod.push(ticket);
+    localStorage.setItem("karlo", JSON.stringify(prod));
+    showData(prod);
+  } showData(prod);
+        function showData(el){
+            document.getElementById("table_data").innerHTML="";
+            el.map((el)=>{
+            var tr=document.createElement("tr");
+            var no=document.createElement("td");
+            no.innerHTML=el.no;
+            var cat=document.createElement("td");
+            cat.innerHTML=el.cat
+            var bd=document.createElement("td");
+            bd.innerHTML=el.bd
+            var date=document.createElement("td");
+            date.innerHTML=el.date;
+            tr.append(no,cat,bd,date);
+            document.getElementById("table_data").append(tr);
+            });
+        }
+
+
+
+        function handleSort() {
+        var selected = document.querySelector("#Sort").value;
+        console.log(selected);
+        if (selected == "high") {
+            prod.sort(function (a, b) {
+                return Number(b.no) - Number(a.no);
+            });
+        }
+        if (selected == "low") {
+            prod.sort(function (a, b) {
+                return Number(a.no) - Number(b.no);
+            });
+        }
+        showData(prod);
+    }
+        
+    </script>
+</body>
+</html>
