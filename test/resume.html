@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 20s ease infinite;
+        height: 100vh;
+        font-family: sans-serif;
+      }
+      section {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        width: 630px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        padding: 20px;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      tr:nth-child(even) {
+        background: #e8ece9;
+      }
+      tr:nth-child(odd) {
+        background: #cdd7ce;
+      }
+      h1 {
+        color: #595959;
+        text-align: center;
+        width: 100%;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 55px;
+        margin-block: 0px;
+      }
+      b {
+        color: black;
+      }
+      .Ex {
+        border-left-style: dotted;
+        padding-left: 10px;
+        margin: 10px;
+        border-color: #bebebf;
+
+        /* line-height: 1px; */
+      }
+      table,
+      th,
+      td {
+        font-family: sans-serif;
+        border: 2px solid white;
+        border-collapse: collapse;
+        padding-left: 5px;
+      }
+      td {
+        width: 25%;
+        padding: 3px;
+      }
+      th {
+        background-color: #3b9e55;
+        color: white;
+        text-align: left;
+        width: 25%;
+        padding: 3px;
+      }
+      h2 {
+        color: #b12835;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      h3,
+      p {
+        color: #595859;
+        margin-block: 5px;
+      }
+      h3 > b {
+        font-family: MONOSPACE;
+        color: #19bb44;
+      }
+      hr {
+        color: black;
+        width: 100%;
+      }
+      @media screen and (max-width: 629px) {
+        section {
+          width: 100%;
+          margin: 0px;
+        }
+        h1 {
+          font-size: 9vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>VAIBHAV <b>SOLANKI</b></h1>
+      <p>
+        <b>Address</b><br />169/3 Shree Hari Bhavan <br />Freeganj, Ujjain(MP)
+        pin:456001 <br /><b>Phone:</b>7000392596 <br /><b style="color: #19bb44"
+          >Email:</b
+        ><a href="mailto:VaibhavDasss@gmail.com">Vaibhadasss@gmail.com</a>
+      </p>
+      <hr />
+      <p>
+        To replace This text with your own ,just click it and start typing
+        Briefly state your career objective or summarise what makes you stand
+        out.Use language from the job description as Keyword
+      </p>
+      <h2>EXPERIENCE</h2>
+      <div class="Ex">
+        <h3>10/10/2010-10/10/2020</h3>
+        <h3><b>JOB TITLE</b><small>,company</small></h3>
+        <p>
+          Describe Your Responsibility and archivement in term of impact and
+          results use example but keep it short
+        </p>
+        <br />
+        <h3>10/10/2010-10/10/2020</h3>
+        <h3><b>JOB TITLE</b><small>,company</small></h3>
+        <p>
+          Describe Your Responsibility and archivement in term of impact and
+          results use example but keep it short
+        </p>
+      </div>
+      <h2>EDUCATION</h2>
+      <b>
+        <table width="100%">
+          <tr>
+            <th>BOARD</th>
+            <th>YEAR OF PASSING</th>
+            <th>PERCENTAGE</th>
+            <th>GRADE</th>
+          </tr>
+          <tr>
+            <th>SSC</th>
+            <td>2007</td>
+            <td>90</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <th>INTER</th>
+            <td>2007</td>
+            <td>90</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <th>UG</th>
+            <td>2007</td>
+            <td>90</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <th>PG</th>
+            <td>2007</td>
+            <td>90</td>
+            <td>A</td>
+          </tr>
+        </table>
+      </b>
+      <h2>SKILLS</h2>
+      <ul>
+        <li>List your strengths relevants for the role</li>
+        <li>List your strengths relevants for the role</li>
+        <li>List your strengths relevants for the role</li>
+      </ul>
+      <h2>ACTIVITIES</h2>
+      <p>
+        Use this section to highlight your relevant passions, activities, and
+        how you like to give back it's good to include leadership and volunteer
+        experience here. or show off importance extras like publications,
+        certifications,languages and more
+      </p>
+    </section>
+  </body>
+</html>
