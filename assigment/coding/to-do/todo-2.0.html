@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/21bc9a918c.js" crossorigin="anonymous"></script> 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        *{
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        .inp{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        button{
+            height: 45px;
+            width: 100px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #a06cd5;
+            box-shadow: #b185db 0px 2px 8px 0px;
+            border-radius: 3px;
+            color: white;
+            border: none;
+            margin-left:5px ;
+        }
+        #card{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            max-width: 560px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            margin-top: 90px;
+        }
+        h1{
+            margin: 0;
+            text-shadow: 8px 2px 10px #dec9e9;
+        }
+        div{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        input{
+            width: 100%;
+            height: 45px;
+            border: solid 1px #b1b1b1;
+            border-radius: 3px;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            padding: 10px;
+            background: linear-gradient(to bottom, #68EACC 0%, #497BE8 100%);
+        }
+        .tasks{
+            background: #d2b7e55c;
+            border-radius: 3px;
+            padding: 15px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            height: 55px;
+            overflow: hidden;
+            line-height: 30px;
+            transition: 0.5s;
+            outline: none;
+        }
+        #task_con{
+            margin:0px
+
+        }
+        .tasks>div{
+            margin: 0px;
+            width: 25px;
+            font-size: 25px;
+        }
+        .tasks>p{
+            margin:0px;
+        }
+        .tas{
+            width: 300px;
+            padding-left: 5px;
+            
+        }
+        .tasks:hover{
+            transform: scale(1.02);
+            height:auto;
+            overflow:auto;
+            line-height:normal;
+        }
+        .delText{
+            text-decoration: line-through;
+        }
+        .tim{
+            font-family: monospace;
+        }
+        input[type=text]:focus {
+        border: 1px solid #a06cd5;
+        }
+    </style>
+</head>
+<body>
+    <div id="card">
+        <h1>Todo App</h1>
+        <div class="inp">
+            <input type="text" id="task" placeholder="Add Your New Todo">
+            <button class="btn plus" onclick="setTask()"><i class="fas fa-plus"></i></button>
+        </div>
+        <div id="task_con">
+            <!-- task will be shown here -->
+            <div class="tasks"><p>testing task</p> <div><i class="fas fa-trash"></i></div></div>
+        </div>
+        <div class="inp bot">
+            <p id="mes">Great you have nothing Pending</p>
+            <button onclick="taskDone(-1)">Clear</button>
+        </div>
+    </div>
+</body>
+<script>
+    var todo=JSON.parse(localStorage.getItem("todo")) || [];
+    const task=document.querySelector("#task_con");
+    const mes=document.querySelector("#mes");
+    const inp=document.querySelector("#task");
+    noman();
+    function noman(){
+        task.innerHTML="";setMes();
+        todo.map((el,ind)=>{
+            let div=document.createElement("div");
+            div.setAttribute("class","tasks");
+            let p=document.createElement("p");
+                       
+            p.innerHTML=el.task;
+            let time=document.createElement("p");
+            time.setAttribute("class","tim");
+            time.innerHTML=`Time: ${el.time}`;
+            let button=document.createElement("div");
+            if(el.status){
+                p.setAttribute("class","tas");
+                button.innerHTML=`<i class="fas fa-check-circle"></i>`;
+                button.style.color="green";
+            }            
+            else{
+                p.setAttribute("class","tas delText"); 
+                button.innerHTML=`<i class="fas fa-trash"></i>`;
+                button.style.color="red";
+            }            
+            button.addEventListener("click", function () {
+                taskDone(ind);
+            });
+            div.append(p,time,button);
+            task.append(div);
+        })
+    }
+    function taskDone(n){
+        if(n!=-1)
+        if(todo[n].status==true){
+            todo[n].status=false;
+            localStorage.setItem("todo",JSON.stringify(todo));
+            noman();
+            return
+        }
+        let temp=[];
+        if(n!=-1)
+        for(var i=0;i<todo.length;i++)if(i!=n)temp.push(todo[i]);
+        todo=temp;
+        localStorage.setItem("todo",JSON.stringify(todo));
+        noman();
+    }
+    function setMes(){
+        if(todo.length==0)
+        mes.innerHTML="Great you have nothing Pending";
+        else
+        mes.innerHTML=`You Have ${todo.length} pendding Tasks`;
+    }
+    function setTask(){
+        let newTask=inp.value;
+        if(todo.length==6){
+            alert("First Clear Your pendding Tasks");
+            return
+        }
+        inp.value="";
+        todo.unshift(constrFun(newTask));
+        localStorage.setItem("todo",JSON.stringify(todo));
+        noman();
+    }
+
+    function constrFun(el){
+        const d = new Date();
+        let t = d.toLocaleTimeString();
+        let temp={
+            task:el,
+            time:t,
+            status:true
+        }
+        return temp;
+    }
+
+</script>
+</html>
