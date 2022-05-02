@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Menu</a>
+            <a href="/">Login</a>
+            <a href="/">signup</a>
+            <a href="cart.html" id="cartNo"><i class="fas fa-cart-arrow-down"></i></a>
+        </nav>
+    </header>
+    <main>
+
+    </main>
+    <footer>
+        <div class="foot">
+            <h1 id="priceToShow">Total :<i class="fas fa-rupee-sign"></i></h1> <button onclick="window.open('/checkout.html');">Chechout</button>
+        </div>
+    </footer>
+</body>
+<script>
+    let priceToShow=document.querySelector("#priceToShow");
+    var priceT=0;
+    priceToShow.innerHTML=`Total :<i class="fas fa-rupee-sign"></i>${priceT}`;
+    var cart=JSON.parse(localStorage.getItem("cart")) || [];
+    var cartShow=document.querySelector("#cartNo");
+    cartShow.innerHTML=cart.length;
+    const main=document.querySelector("main");
+    showData(cart)
+    function showData(data){
+        priceT=0;
+        main.innerHTML=""
+        data.map((el)=>{
+            let div=document.createElement("div");
+            let subDiv=document.createElement("div");
+            div.setAttribute("class","box")
+            subDiv.setAttribute("class","subbox")
+            let img=document.createElement("img");
+            img.src=el.strMealThumb;
+            let name=document.createElement("h2");
+            name.innerHTML=el.strMeal;
+            let price=document.createElement("p");
+            let priceNew=Number(Math.floor(Math.random() * (400) + 100));
+            priceT+=priceNew;
+            priceToShow.innerHTML=`Total :<i class="fas fa-rupee-sign"></i>${priceT}`;
+            price.innerHTML='<i class="fas fa-rupee-sign"></i> '+priceNew;
+            let btn=document.createElement("button");
+            btn.addEventListener("click", ()=>{
+                console.log("click");
+                cart=cart.filter((x)=>{
+                     return (x!=el)
+                })
+                localStorage.setItem("cart",JSON.stringify(cart)); 
+                cartShow.innerHTML=cart.length; 
+                showData(cart)
+            });
+            subDiv.append(price,btn);
+            btn.innerHTML="Remove";
+            div.append(img,name,subDiv);
+            main.append(div);
+        })
+    }
+</script>
+</html>
