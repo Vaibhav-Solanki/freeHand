@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Vaccine Booth alert System</h1>
+
+    Name: <input type="text" id="name" />
+
+    <button onclick="register()">Register</button>
+    <table id="tab">
+
+    </table>
+  </body>
+  <script>
+      let vac=7;
+        let queue = ["swanand", "maya", "bob", "ronaldo"];
+        queShow();
+
+function register() {
+  let name = document.getElementById("name").value;
+
+  queue.push(name);
+  console.log("queue:", queue);
+
+  let message = `${name} your registration is succesfull. Please wait for your turn.`;
+
+  alert(message);
+
+  let promise = new Promise(function (resolve, reject) {
+    setInterval(function () {
+      queShow();
+        if(vac<=0)reject("vaccine out of stock");
+      if (queue[0] == name) {
+        resolve(`${name} its your turn now`);
+
+        //clearInterval(interval);
+      }
+    }, 5000);
+  });
+
+  promise.then(function (res) {
+    alert(res);
+
+  });
+  promise.catch(function(res){
+      alert(res);
+      clearInterval(interval);
+  })
+
+}
+
+function startVaccination() {
+  queue.shift(name);
+  if (queue.length === 0) {
+    clearInterval(interval);
+  }
+}
+
+var interval = setInterval(startVaccination, 2000);
+function queShow(){
+  var table=document.querySelector("#tab");
+  table.innerHTML="";
+  queue.map((person)=>{
+  var tr=document.createElement("tr");
+  tr.innerHTML=`<td>${person}</td>`;
+  table.append(tr);
+})
+}
+
+  </script>
+</html>
