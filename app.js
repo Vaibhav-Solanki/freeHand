@@ -7,13 +7,7 @@ const commitOnDate = async ({ path, date, name }) => {
     console.log(error);
   }
 };
-let i = 2;
-let tmp = setInterval(() => {
-  let x = i++;
-  if (x == 75) clearInterval(tmp);
-  console.log(db[x]);
-  commitOnDate(db[x]);
-}, 1000);
+commitOnDate(db[0]);
 // db.forEach(commitOnDate);
 // console.log(db.length);
 
